@@ -1,6 +1,7 @@
 # combo tools v 4
 # python3
 import os
+import hashlib
 os.system('cls' or 'clear')
 class color :
     GREEN = '\033[48m'
@@ -184,7 +185,6 @@ if mode != 9:
                 print('all lines : %s | duplicated : %s | \t saved : % i ' % (n,sv,sv2) )
                 fo.close()
         if mode == 4:
-            import hashlib
             typtxt = '''
             Pleas insert hash type:
             md5
