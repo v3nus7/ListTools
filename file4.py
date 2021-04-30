@@ -30,9 +30,10 @@ im = '''
     [2] remov duplicate line
     [3] save duplicate
     [4] combo crack offline
-    [6] encode password on combo
-    [5] combo crack online
-    [5] Dev info
+    [5] encode password on combo
+    [6] combo crack online
+    [7] file spliter
+    [8] Dev info
     [9] Exit
     
               : '''
@@ -58,8 +59,8 @@ if mode != 9:
             fi = open(f , 'r',encoding='latin1',errors='ignore')
             fo = open('res_'+f,'a',encoding='UTF-8',errors='ignore')
             spc = input("Split by ? ' : ; , . @ and ....' ")
+            err = 0
             rf = int(input("""
-            
             [0] for left
             [1] for right
             [2] for right 2 (exampel : email:pass:phone | 2 for save phone )
@@ -115,7 +116,7 @@ if mode != 9:
             d = 0
         if mode == 2:
             f = input('Pleas Enter Your File Neme : ')
-            fi = open(f , 'r',encoding='latin1',errors='ignore')
+            fi = open(f , 'r',encoding='UTF-8',errors='ignore')
             fo = open('res__'+f,'a',encoding='UTF-8',errors='ignore')
             dop = 0
             sv = 0
@@ -248,6 +249,33 @@ if mode != 9:
                 ask = input('Do you want to crack the new combo list?  y OR n   :')
                 fo.close()
                 dic = dict()
+        if mode == 6:
+            md = int(input('''
+                    MODE :
+                [0]Encode Line
+                [1]Encode PassWord
+                [2]Encode Email/User 
+                                     : '''))
+            def tohash (txt , ty):
+                return getattr(hashlib,ty)((txt.strip()).encode()).hexdigest()
+        if mode == 7:
+            f = input('Pleas Enter Your file : ')
+            fi = open(f, 'r', encoding='utf-8', errors='ignore')
+            cont = int(input('Number Line on Per File ?'))
+            n = 0
+            i = 0
+            fo = open('par'+str(i)+f,'w',encoding='utf-8',errors='ignore')
+            for line in fi:
+                n+=1
+                fo.write(line)
+                if n == cont:
+                    n=0
+                    print('saved part ',i)
+                    i+=1
+                    fo.close()
+                    fo = open('par' + str(i) + f, 'w', encoding='utf-8', errors='ignore')
+            fo.close()
         mode = int(input(im))
+
 else:
     print("closed")
