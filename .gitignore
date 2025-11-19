@@ -23,10 +23,11 @@ wheels/
 .installed.cfg
 *.egg
 
-# Test data
+# Test data and output
 test_data/
 *.txt
 !requirements.txt
+!INSTALL.md
 
 # IDE
 .vscode/
