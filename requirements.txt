@@ -1,0 +1,9 @@
+# ListTools v5.0 Requirements
+# Python 3.7+ required
+
+# No external dependencies required!
+# All features use Python standard library:
+# - tkinter (GUI) - included with Python or install via: apt-get install python3-tk
+# - hashlib (hashing) - included with Python
+# - threading (multi-threading) - included with Python
+# - pathlib (file operations) - included with Python
